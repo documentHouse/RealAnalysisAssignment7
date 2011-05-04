@@ -1,0 +1,116 @@
+%\documentclass[11pt,reqno]{amsart}
+\documentclass[11pt,reqno]{article}
+\usepackage[margin=.8in, paperwidth=8.5in, paperheight=11in]{geometry}
+%\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+%\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent7
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{caption}
+\pagestyle{plain}
+%\renewcommand{\topfraction}{0.3}
+%\renewcommand{\bottomfraction}{0.8}
+%\renewcommand{\textfraction}{0.07}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\title{Real Analysis $\mathbb{I}$: \\ Assignment 7}
+\author{Andrew Rickert}
+\date{Started: May 4, 2011 \\ \hspace{1pt} Ended: May ??,  2011}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+
+% Page 1
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 1\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+We need to show that the series $\sum_{i = 0} (-1)^i a_i = a_0 - a_1 + a_2 - a_3 + ... $ converges given that  $a_i \ge 0$ and $ a_i \ge a_{i+1}$ and well as the fact that $\lim_{n \to \infty} a_n = 0$. If we let $s_n = \sum_{i = 0}^n (-1)^i a_i$ then we have the following relation 
+
+\begin{equation} 
+|s_{n+k} - s_n| = |a_{n+1} - a_{n+2} + ... + (-1)^{n+k} a_{n+k}| \label{eqn:partaltsum}
+\end{equation}
+
+We may always start with positive terms in the above expression because a negative in the leading term can be factored out and cancelled by the absolute value. Looking at equation (\ref{eqn:partaltsum}) we can see that we will need to handle the case where the partial series ends in a positive or negative term. \\
+\indent Let's assume that the final term is positive. We may then group the terms in (\ref{eqn:partaltsum}) as follows
+\[ S = a_{n+1} + (-a_{n+2} + a_{n+3}) + (-a_{n+4} + a_{n+5}) + .... + (-a_{n+k-1} + a_{n+k}) \]
+By hypothesis we have that $a_i \ge a_{i+1} \implies 0 \ge -a_i + a_{i+1} $ which says that that values of the terms in the parenthesis are all negative which says that $S \le a_{n+1}$.\\
+If we now assume that the last term is negative we may group the terms again as in the above to form
+\[ S = a_{n+1} + (-a_{n+2} + a_{n+3}) + (-a_{n+4} + a_{n+5}) + .... + (-a_{n+k-2} + a_{n+k-1}) - a_{n+k} \]
+By the previous reasoning all the terms in the parenthesis are negative as well as $-a_{n+k}$ which allows us to once again say that $S \le a_{n+1}$. So we have shown in all cases that 
+
+\begin{equation}
+|s_{n+k} - s_n| \le a_{n+1} \label{eqn:partaltineql}
+\end{equation}
+
+Because $a_n$ converges to 0 for a given $\epsilon$ we have $N$ such that for $n > N$ we have $|a_n| < \epsilon$. Applying this to equation $(\ref{eqn:partaltineql})$ gives 
+\[ |s_{n+k} - s_n| \le a_{n+1} < \epsilon \]
+
+Since $n+k > N$ for all $k \in \mathbb{N}$ we can let $m = n+k$ which shows that $(s_n)$ is a cauchy sequence. By the completeness of the real numbers this sequence converges to a real number.
+
+
+\newpage
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 2\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+We are given the function with $x \in (0,1)$ as $f(x) = 0$ when $x$ is irrational and $f(x) = \frac{1}{q}$ when $x = \frac{p}{q}$ and the fraction is in lowest terms. \\
+\indent First we show that if $(p_n)$ is any sequence of rationals where $\lim_{n \to \infty} r_n = r$ and $r_n \neq r$ for all $n$ then letting $r_n = \frac{p_n}{q_n}$ we have $\lim_{n \to \infty} q_n = \infty$. In other words, for any convergent sequence of distinct rationals the denominator increases without bound.\\
+\indent Suppose that this did not happen, that the sequence of denominators $(q_n)$ was bounded above with bound $q$. Then since all rationals are in $(0,1)$ we know that each rational is of the form $\frac{p_n}{q_n}$ where $p_n \le q_n -1$ and $q_n \le q$. So there are a finite number of rationals that are possible in the sequence. Because the sequence converges to $r$ if we have $\epsilon > 0$ there is a $N$ such that $n > N$ implies that $|r_n - r| < \epsilon$. This allows to pick a $r_1'$ that satisfies the inequality, then by reducing to $\epsilon/2$ we may find another $N'$ and pick an $r_2'$ and so on. This produces an infinity of rationals distinct from $r$ which shows assuming the boundedness of the denominators leads to a contradiction. \\
+\indent It is clear that a sequence of irrationals $(i_n)$ such that $\lim_{n \to \infty} i_n= x'$ will give $\lim_{i_n \to x'} f(i_n)  = 0$ since $f(i_n) = 0$ for all irrationals. \\
+\indent If we have a sequence of rationals $(r_n)$ such that $\lim_{n \to \infty} r_n = x'$ then we will also have \\$\lim_{r_n \to x'} f(r_n)  = 0$. This is because $r_n = \frac{p_n}{q_n}$ so $f(r_n) = \frac{1}{q_n}$. By the previous discussion we have $\lim_{n \to \infty} q_n = \infty$ which makes $\frac{1}{q_n}$ a subsequence of the sequence $\frac{1}{n}$ which converges to zero so \\ $\lim_{r_n \to x'} f(r_n)  = 0$.\\
+\indent Because a finite number of terms do not effect the limit we only need to consider the case when a sequence which converges to a point in $(0,1)$ that contains an infinitude of rationals and irrationals. If we let $(x_n)$ be such a sequence then we may form two subsequences of $(f(x_n))$. We let $f_{2m} = f(x_n)$ if $x_n$ is irrational and $f_{2m-1} = f(x_n)$ if $x_n$ is rational. By the previous comments both of these sequences converge to 0 and by a previous homework the entire sequence $(f(x_n))$ must converge to zero.\\
+\indent So we have shown that every sequence that converges to a point in (0,1) also has the property that $\lim_{x_n \to x'} f(x_n) = 0$. By a theorem in rudin this implies that $\lim_{x \to x'} f(x) = 0$ for all $x \in (0,1)$. By another theorem in rudin a function is only continuous if $\lim_{x \to x'} f(x) =f(x')$. For the irrationals we satisfy this version of continuity since $f(i) = 0$ for an irrational $i$. However since $f(r) = \frac{1}{q} \neq 0$ for a rational $r$ the function is discontinuous at every rational.
+
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 3\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 4\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 5\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 6\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+
+\vspace{15pt}
+\begin{flushleft} 
+\textbf{Class 18.100B} - Problem 7\\
+\rule{500pt}{1pt}\\
+\end{flushleft} 
+
+
+%\vspace{15pt}
+%\begin{flushleft} 
+%\textbf{Class 18.100B} - Extra Problem 1\\
+%\rule{500pt}{1pt}\\
+%\end{flushleft} 
+
+
+\end{document}  
