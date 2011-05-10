@@ -77,6 +77,10 @@ We are given the function with $x \in (0,1)$ as $f(x) = 0$ when $x$ is irrationa
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+\noindent Part a) We need to show that $f(\mathcal{Q})$ is dense in $f(\mathcal{M})$ if $\mathcal{Q}$ is dense in $\mathcal{M}$.\\
+\indent Let $m \in \mathcal{M}$ be such that $f(m) \notin f(\mathcal{Q})$ for otherwise we are already done. Because $\mathcal{Q}$ is dense in $\mathcal{M}$ there is a sequence $(q_n)$ such that $q_n \in \mathcal{Q}$ and $q_n \neq m$ for all $n$ and $\lim_{n \to \infty} q_n = m$. By the continuity of $f$ we have from rudin that $\lim_{n \to \infty} q_n = m \implies \lim_{n \to \infty}f(q_n) = f(m)$. Thus for a given point in $\mathcal{M}$ there is always a sequence in $\mathcal{Q}$ that limits to this point. By the definition of the limit of a sequence and the fact that $q_n \neq m$ for all $n$ we can say that every neighborhood of $f(m)$ contains an element of $f(q_n) \in f(\mathcal{Q})$. So every point of $f(\mathcal{M})$ is either a point of $\mathcal{Q}$ or a limit point of $\mathcal{Q}$ which shows that this set is dense in $f(\mathcal{M})$.\\
+
+\noindent Part b) Now we need to show that $f(x) = g(x)$ for all $x \in \mathcal{M}$ if $f(x) = g(x)$ for $x \in \mathcal{Q}$.
 
 \vspace{15pt}
 \begin{flushleft} 
