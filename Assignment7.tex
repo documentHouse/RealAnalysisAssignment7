@@ -89,6 +89,13 @@ We are given the function with $x \in (0,1)$ as $f(x) = 0$ when $x$ is irrationa
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+\noindent Part a) We need to find a $f$ such that $f$ is continuous and an $E \subset \mathbb{R}$ where $E$ is bounded and $f(E)$ is unbounded.\\
+\indent If we let $E = (0,1)$ and $f = \{ \frac{1}{x} | x \in E \}$ then we have satisfied the requirements. We first show that the function is continuous on $E$. Since $f' = 1$ and $f'' = x$ are plainly continuous on $E$ theorem in rudin says that the $\frac{f'}{f''}$ must be continuous for $f'' \neq 0$. Also if $f(E)$ is bounded then we have $f(x) < M$ for all $x \in (0,1)$. This implies that $0 < \frac{1}{M} < x$ which is false since by the density of the reals there must be a $0 < x' < \frac{1}{M}$ but $x' \in (0,1)$.\\
+
+\noindent Part b) We now need to show that if $f$ is uniformly continuous and $E$ is bounded that $f(E)$ must also be bounded.\\
+\indent This is equivalent to showing that if $E$ is bounded and $f(E)$ is unbounded then $f$ is not uniformly continuous. Let $\frac{M}{2}$ be the bound on $E$ so that $E \subset [-\frac{M}{2},\frac{M}{2}]$. By hypothesis $f(E)$ is unbounded so we pick a point $p_1 \in E \cap  [-\frac{M}{2},\frac{M}{2}]$. Next we divided the interval in two into $ [-\frac{M}{2},0]$ and $[0,\frac{M}{2}]$. The function must be unbounded in at least one of the two sets otherwise $f(E)$ is bounded. We pick a point $p_2$ in this set. We continue dividing each set and choosing a point in the unbounded portion of the division and produce a sequence $(p_n)$ such that $p_n \in A_n$ where $A_n$ is the $n^\text{th}$ set chosen to contain an unbounded portion of $f$. It is clear that $A_n \subset A_{n+1}$ and since each set is closed an bounded we have sequence compact sets. A theorem in rudin states that there must be one and only one point $p$ common to all of these intervals. From the definition of $(p_n)$ we also have $d(p_n,p) < \frac{M}{2^{n-1}}$
+
+
 
 \vspace{15pt}
 \begin{flushleft} 
