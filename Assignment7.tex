@@ -20,7 +20,7 @@
 
 \title{Real Analysis $\mathbb{I}$: \\ Assignment 7}
 \author{Andrew Rickert}
-\date{Started: May 4, 2011 \\ \hspace{1pt} Ended: May ??,  2011}                                           % Activate to display a given date or no date
+\date{Started: May 4, 2011 \\ \hspace{1pt} Ended: June 20,  2011}                                           % Activate to display a given date or no date
 
 \begin{document}
 \maketitle
@@ -128,6 +128,10 @@ This is true for all $\delta$ and so the function is not uniformly continuous.
 \rule{500pt}{1pt}\\
 \end{flushleft} 
 
+We would like to show that for two disjoint sets $K$, which is compact, and $F$, which is closed, that there exists a $\delta$ such $d(x,y) > \delta$ for all $x \in K$ and $y \in F$.\\
+\indent In problem 6 it was shown that the function $d_E(x) = \inf_{z \in E} \, d(x,z)$ is well defined and continuous. Because the function $d_E(x)$ is continuous and $K$ is closed by its compactness, we know by a theorem in Rudin that that $d^{-1}_F(K)$ must also be closed. \\
+\indent Since $d_F(x) > 0$ for all $x \in F$ we know that there is a greatest lower bound for the set of values of $d_F(x)$ and we let this value be $B$. We form the interval $[B,C]$ where $B < C$ and note by the previous comments there must be a $x_0 \in K$ such that $d_F(x_0) = B$. \\
+\indent Suppose that $B = 0$, then $d(x_0,z) < \epsilon$ for all $\epsilon$ and $z \in F$. This means that $x_0$ is a limit point of $F$ so $x_0 \in F$ since F is closed. This violates the hypothesis that the sets $F$ and $K$ are disjoint. So $B > 0$.
 
 
 
